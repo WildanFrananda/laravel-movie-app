@@ -41,42 +41,20 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>The Shawshank Redemtion</td>
-                        <td>John Doe</td>
-                        <td>9.5</td>
-                        <td>This movie is a masterpiece. The acting, the storyline, and the ending are all fantastic.</td>
-                        <td>22-03-12</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Parasite</td>
-                        <td>Mark Johnson</td>
-                        <td>9.0</td>
-                        <td>This movie is a gripping social commentary that is humorous and thought-provoking. Highly recommended.</td>
-                        <td>22-05-01</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Inception</td>
-                        <td>Jane Smith</td>
-                        <td>8.5</td>
-                        <td>The concept of this movie is mind-bending and the special effect is incredible. However, I felt the plot was a bit convoluted at times</td>
-                        <td>22-04-23</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
+                    @foreach ($reviews as $review)
+                        <tr>
+                            <td>{{ $review['no'] }}</td>
+                            <td>{{ $review['film'] }}</td>
+                            <td>{{ $review['user'] }}</td>
+                            <td>{{ $review['rating'] }}</td>
+                            <td>{{ $review['review'] }}</td>
+                            <td>{{ $review['tanggal'] }}</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-warning"> Edit</a>
+                                <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
