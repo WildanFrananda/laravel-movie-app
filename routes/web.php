@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,4 @@ Route::get("/genres", [GenreController::class, "index"]);
 
 Route::get("/reviews", [ReviewController::class, "index"]);
 
-Route::get("/users", function() {
-    return view("users/index");
-});
+Route::get("/users", [UserController::class, "index"]);

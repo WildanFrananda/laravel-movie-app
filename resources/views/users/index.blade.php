@@ -41,42 +41,20 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Vinka</td>
-                        <td>vinkaz</td>
-                        <td>NICE2022#!</td>
-                        <td>vinka@gmail.com</td>
-                        <td>Administrator</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Zalsabilla</td>
-                        <td>zalsa</td>
-                        <td>12345abcde</td>
-                        <td>zalsa@gmail.com</td>
-                        <td>User</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Example</td>
-                        <td>example</td>
-                        <td>exm1234#!</td>
-                        <td>example@gmail.com</td>
-                        <td>User</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
+                    @foreach ($users as $user)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $user->nama }}</td>
+                            <td>{{ $user->username }}</td>
+                            <td>{{ $user->password }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->role }}</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-warning"> Edit</a>
+                                <a href="" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
