@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Models\Genre;
 
 class MovieController extends Controller {
     /**
@@ -12,24 +13,33 @@ class MovieController extends Controller {
      */
     public function index() {
         $movies = Movie::all();
-
         return view("movies.index", compact("movies"));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
+    public function create() {
+        $genres = Genre::all();
+        return view("movies.create", compact("genres"));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $validatedData = $request->validate([
+            "judul" => "required",
+            "poster" => "required",
+            "genre_id" => "required",
+            "negara" => "required",
+            "tahun" => "required|integer",
+            "rating" => "required|numeric",
+        ]);
+
+        Movie::create($validatedData);
+
+        return redirect("/movies")->with("success", "Movie added successfully!");
     }
 
     /**
@@ -59,8 +69,8 @@ class MovieController extends Controller {
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Movie $movie)
-    {
-        //
+    public function destroy(Movie $movie) {
+        $movie->delete();
+        return redirect("/movies")->with("success", "Movie delete successfully!");
     }
 }
