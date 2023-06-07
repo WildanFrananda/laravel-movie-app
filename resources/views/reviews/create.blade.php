@@ -26,8 +26,8 @@
             <form method="POST" action="/reviews">
                 @csrf
                 <div class="form-inline mb-3">
-                    <label for="judul">Film</label>
-                    <select class="form-control" type="text" id="judul" name="movie_id">
+                    <label for="movie_id">Film</label>
+                    <select class="form-control" type="text" id="movie_id" name="movie_id">
                         <option selected>Choose Film...</option>
                         @foreach ($movies as $movie)
                             <option value="{{ $movie->id }}">{{ $movie->judul }}</option>

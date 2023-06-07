@@ -42,7 +42,7 @@
                     <input class="form-control" type="email" id="email" name="email">
                 </div>
                 <div class="form-inline mb-3">
-                    <label for="rating">Role</label>
+                    <label for="role">Role</label>
                     <select class="form-control" name="role" id="role">
                         <option selected>Choose Role...</option>
                         <option value="Administrator">Administrator</option>

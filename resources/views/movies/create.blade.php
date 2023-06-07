@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-inline mb-3">
                     <label for="genre">Genre</label>
-                    <select class="form-control" id="genre" name="genre_id">
+                    <select class="form-control" id="genre_id" name="genre_id">
                         <option selected>Choose Genre...</option>
                         @foreach ($genres as $genre)
                             <option value="{{ $genre->id }}">{{ $genre->nama }}</option>
