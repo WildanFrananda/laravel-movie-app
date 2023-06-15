@@ -98,6 +98,9 @@ class MovieController extends Controller {
      * Remove the specified resource from storage.
      */
     public function destroy(Movie $movie) {
+        // Delete the image
+        Storage::disk("public")->delete("assets/img/" . $movie->poster);
+
         $movie->delete();
         return redirect("/movies")->with("success", "Movie delete successfully!");
     }
